@@ -1,0 +1,11 @@
+<mat-card>
+    <mat-card-title>Gestión de Habitaciones</mat-card-title>
+    <mat-list>
+        <mat-list-item *ngFor="let room of rooms">
+            <div>{{ room.type }} - {{ room.price | currency }}</div>
+            <mat-slide-toggle [checked]="room.enabled" (change)="toggleRoomStatus(room)">
+                {{ room.enabled ? 'Habilitada' : 'Deshabilitada' }}
+            </mat-slide-toggle>
+        </mat-list-item>
+    </mat-list>
+</mat-card>

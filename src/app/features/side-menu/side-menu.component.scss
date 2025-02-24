@@ -1,0 +1,22 @@
+.spacer {
+    flex: 1;
+}
+
+.sidenav-container {
+    height: 100vh;
+    display: flex;
+}
+
+mat-sidenav {
+    height: 100%;
+    overflow: auto;
+}
+
+.icon-menu {
+    cursor: pointer;
+}
+
+
+.mat-drawer-content {
+    width: 100%;
+}

@@ -1,0 +1,35 @@
+<body>
+  <div class="container-form">
+    <form
+      class="form-login"
+      [formGroup]="loginGroup">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          placeholder="pat@example.com"
+          formControlName="email"
+          required />
+        @if (loginGroupControls['email'].invalid) {
+        <mat-error>{{emailErrorMsg}}</mat-error>
+        }
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input formControlName="password" required matInput [type]="hide() ? 'password' : 'text'" />
+        <mat-icon mat-icon-button
+          matSuffix (click)="clickEvent($event)"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide()">{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+        @if (loginGroupControls['password'].invalid) {
+        <mat-error>{{passwordErrorMsg}}</mat-error>
+        }
+      </mat-form-field>
+      <button class="btn-login" [disabled]="loginGroup.invalid" (click)="onSubmit()">Iniciar sesión</button>
+      @if(errorMessage){
+      <p class="error-message">{{ errorMessage }}</p>
+      }
+
+    </form>
+  </div>
+</body>

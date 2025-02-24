@@ -1,59 +1,68 @@
-# HotelAdministration
+# 📌 Plataforma de Gestión de Reservas de Hoteles
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
+## 📖 Descripción
+Este proyecto es una plataforma de reservas de hoteles desarrollada con **Angular** en el frontend y basada en **mocks** para la gestión de datos.
 
-## Development server
+## 🏗️ Arquitectura
+El proyecto sigue una arquitectura modular con dos roles principales:
+- **Agencia**: Gestiona hoteles y reservas.
+- **Viajero**: Realiza búsquedas de hoteles y reservas.
 
-To start a local development server, run:
+### 📂 Estructura del Proyecto
+```
+📦 src/app
+ ├── core/                     # Servicios y lógica central
+ │   ├── services/             # Servicios mockeados
+ │   ├── guards/               # Guards de autenticación y roles
+ │
+ ├── features/
+ │   ├── travel-agency/        # Módulo para agencias
+ │   │   ├── travel-agency-routing.module.ts
+ │   │   └── travel-agency.module.ts
+ │   │
+ │   ├── traveler/             # Módulo para viajeros
+ │   │   ├── traveler-routing.module.ts
+ │   │   └── traveler.module.ts
+ │
+ │
+ ├── app.routes.ts              # Rutas principales
+ ├── app.component.ts           # Componente raíz
+ └── app.module.ts              # Módulo principal
+```
 
+## 🔗 Rutas Principales
+
+
+## 🚀 Instalación y Ejecución
+
+### 1️⃣ Clonar el Repositorio
+```bash
+git chttps://github.com/casalazar562/reservas.git
+cd  reservas
+```
+
+### 2️⃣ Instalar Dependencias
+```bash
+npm install
+```
+
+### 3️⃣ Iniciar el Servidor de Desarrollo
 ```bash
 ng serve
 ```
+Acceder a: [http://localhost:4200](http://localhost:4200)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🔑 Credenciales Mockeadas
 
-## Code scaffolding
+### Agencia
+- **Usuario:** agencia@test.com
+- **Contraseña:** 123456
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Viajero
+- **Usuario:** viajero@test.com
+- **Contraseña:** 123456
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 📌 Notas Importantes
+- La autenticación está basada en un servicio mockeado.
+- Los datos de hoteles y reservas se manejan con mocks dentro de los servicios.
+- Se usa **Angular Material** para la interfaz gráfica.

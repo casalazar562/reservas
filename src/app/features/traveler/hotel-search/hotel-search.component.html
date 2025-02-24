@@ -1,0 +1,47 @@
+<mat-card>
+    <mat-card-title>Buscar Hoteles</mat-card-title>
+    <form [formGroup]="searchForm" (ngSubmit)="searchHotels()" class="search-form">
+        <mat-form-field appearance="outline">
+            <mat-label>Fecha de Entrada</mat-label>
+            <input matInput [matDatepicker]="picker1" formControlName="checkInDate">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Fecha de Salida</mat-label>
+            <input matInput [matDatepicker]="picker2" formControlName="checkOutDate">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Cantidad de Personas</mat-label>
+            <input matInput type="number" formControlName="guests">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Ciudad de Destino</mat-label>
+            <input matInput formControlName="city">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit">Buscar</button>
+    </form>
+</mat-card>
+
+<mat-card *ngIf="hotels.length > 0" class="card-result">
+    <mat-card-title>Resultados</mat-card-title>
+    <mat-list>
+        <mat-list-item *ngFor="let hotel of hotels">
+            <h3>{{ hotel.name }}</h3>
+            <p>Ubicación: {{ hotel.location }}</p>
+            <p>Precio: ${{ hotel.price }}</p>
+            <p>Calificación: ⭐ {{ hotel.rating }}</p>
+            <button mat-button color="accent" [routerLink]="['/dashboard/traveler/reserve', hotel.id]">Hacer
+                reserva</button>
+        </mat-list-item>
+    </mat-list>
+</mat-card>
+
+<p *ngIf="hotels.length === 0 && !loading">No se encontraron hoteles</p>
+<p *ngIf="loading">Buscando hoteles...</p>

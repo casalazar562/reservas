@@ -1,0 +1,40 @@
+.form-create-hotel {
+    display: flex;
+    flex-direction: column;
+    padding: 26px;
+    gap: 3px;
+}
+
+.button-group {
+    display: flex;
+    gap: 9px;
+    justify-content: center;
+    padding: 10px;
+}
+
+.btn-save,
+.btn-cancel {
+    width: 150px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer !important;
+}
+
+.btn-save {
+    background-color: #005cbb;
+    color: #fff;
+
+}
+
+.btn-save:disabled {
+    background-color: #74777f;
+    color: #fff;
+
+}
+
+.btn-cancel {
+    background-color: #74777f;
+    color: #fff;
+}

@@ -1,0 +1,28 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="side" opened>
+        <mat-toolbar>Menú</mat-toolbar>
+        <mat-nav-list>
+            @for(item of menuItems; track item){
+
+            <ng-container>
+                <a mat-list-item [routerLink]="item.path">{{ item.label }}</a>
+            </ng-container>
+            }
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <mat-icon (click)="toggleSidenav()" class="icon-menu">menu</mat-icon>
+            <span>Mi Aplicación</span>
+
+            <span class="spacer"></span>
+            @if(isAuthenticated){
+            <mat-icon matTooltip="Cerrar sesión" class="icon-menu" (click)="logout()">logout</mat-icon>
+            }
+        </mat-toolbar>
+        <div class="content">
+            <router-outlet />
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

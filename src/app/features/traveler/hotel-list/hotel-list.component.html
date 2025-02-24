@@ -1,0 +1,8 @@
+<mat-card *ngFor="let hotel of hotels">
+    <mat-card-title>{{ hotel.name }}</mat-card-title>
+    <mat-card-content>
+        <p>Ubicación: {{ hotel.location }}</p>
+        <p>Habitaciones disponibles: {{ hotel.roomsAvailable }}</p>
+    </mat-card-content>
+    <button mat-raised-button color="primary" (click)="selectHotel(hotel.id)">Seleccionar</button>
+</mat-card>
