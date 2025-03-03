@@ -5,10 +5,13 @@ RUN npm install
 COPY . .
 RUN npm run build --prod
 
-# Etapa 2: Servir con Nginx
 FROM nginx:alpine
-COPY --from=build /app/dist/hotel-administration /usr/share/nginx/html
-RUN ls -la # Verifica si nginx.conf está presente
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+RUN rm -rf /usr/share/nginx/html/*
+RUN rm -f /etc/nginx/conf.d/default.conf
+COPY --from=build /app/dist/hotel-administration/browser /usr/share/nginx/html/
+RUN ls -la /usr/share/nginx/html
+COPY default.template /etc/nginx/conf.d/default.template
+COPY start-nginx.sh /start-nginx.sh
+RUN chmod +x /start-nginx.sh
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["/start-nginx.sh"]
